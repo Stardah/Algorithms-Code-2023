@@ -50,14 +50,14 @@ void test_switch()
     // Оператор Switch
     switch (b + 1) /* expression */
     {
-    case 100: /* метка case с constant-expression */
-        /* code */
-        printf("b == 100\n");
-        break;
+        case 100: /* метка case с constant-expression */
+            /* code */
+            printf("b == 100\n");
+            break;
 
-    default: /* выполнится, если ни один case не подошёл */
-        printf("default\n");
-        break; /* оператор прекращения выполнения оператора */
+        default: /* выполнится, если ни один case не подошёл */
+            printf("default\n");
+            break; /* оператор прекращения выполнения оператора */
     }
 }
 
@@ -103,9 +103,10 @@ void test_goto(void)
         printf("Внешний цикл. i = %d\n", i);
         for (j = 0; j < 3; j++)
         {
-            printf(" Внутренний цикл. j = %d\n", j);
-            if (i == 5)
+            printf("Внутренний цикл. j = %d\n", j);
+            if (i == 5) {
                 goto stop;
+            }
         }
     }
 
