@@ -1,3 +1,4 @@
 *.exe
 .vscode
 main.c
+Strings/task6.c
