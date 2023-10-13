@@ -11,14 +11,20 @@ void copy_string(char *dst, const char *src, int length) {
 
 int main(void) {
     // Разные спопобы задать строку
+    const char *ptr;
     char *strLiteral = "последовательность символов"; // const char *
-    char strArray[10] = "ok";                         // s[0]='o', s[1]='k', s[2]= '\0'
+    char strArray[] = "ok";                         // s[0]='o', s[1]='k', s[2]= '\0'
+    short a[] = {'o', 'k', '\0', 0x42F};
+    strArray[2] = '!';
+    
+    // scanf("%2s", &strArray);
+    // printf("%s", strArray);
 
     char *wrong = "wrong";
     // wrong[0] = "i"; // так не работает
 
     // "Широкие" символы
-    wchar_t strWide[] = L"unicode string";
+    wchar_t strWide[] = L"unicode string я";
     wprintf(L"%ls\n", strWide);
 
     // Длина строки
@@ -31,7 +37,7 @@ int main(void) {
     *dst = 'c';
 
     // Считывание строки
-    char str[5];
+    char str[80];
 
     printf("Ввод с помощью fgets:\n"); // ввод заканчивается после EOF или
                                        // перевода строки
@@ -50,6 +56,12 @@ int main(void) {
     puts("!");
     puts(str);
     fputs(str, stdout);
+
+    int num = 0;
+    char in_str[] = "10";
+    scanf("%d", &num);
+    fscanf(stdin, "%d", &num);
+    sscanf(in_str, "%d", &num);
 
     /*
     int fprintf(FILE * stream, const char *format, ...);
