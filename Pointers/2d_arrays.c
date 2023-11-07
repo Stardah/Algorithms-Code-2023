@@ -3,17 +3,22 @@
 #define ROWS 3
 #define COLS 2
 
-int main(void)
-{
+void print_size(int n, int m, int a[n][m]) {
+    printf("Size: %d\n", sizeof(a));
+}
+
+int main(void) {
     /*
     ROW = 5;
     COLS = 10;
-    
+
     a[ROWS][COLS];
-    
+
+    int * != int (*)[20]
+
     Выражение               Тип           Значение
-    &a[i] = (a + i)         int (*)[20]   &a[0][0] + i * COLS * sizeof(int)
     a[i] = *(a + i)         int[20]
+    &a[i] = (a + i)         int (*)[20]   &a[0][0] + i * COLS * sizeof(int)
     &a[i][j] = a[i] + j     int*          &a[0][0] + i * COLS * sizeof(int) + j
     a[i][j] = *(a[i] + j)   int
 
@@ -24,25 +29,34 @@ int main(void)
         {3, 4},
         {5, 6}};
 
-    int(*one_row)[2]; // Указатель на массив из 2-х значений типа int
+    int(*row)[2];     // Указатель на массив из 2-х значений типа int
     int *all_rows[3]; // Указатель на массив из 3-х значений типа int* (указателей на int)
-    int *p; 
+    int *p;
 
-    one_row = matrix;
-    one_row = matrix + 1;
+    row = matrix;
+    row = matrix + 1; // на следующую строку
+    printf("%x\n", row);
     p = matrix[0];
 
-    // matrix[] это int (*)[];
+    print_size(ROWS, COLS, row);
+
+    // matrix[i] это int (*)[];
     // *(int (*)[]) это int[];
     // &(int[]) это int*
-    all_rows[0] = &*matrix[0];
+    all_rows[0] = &*matrix[0]; // так не надо
+    all_rows[0] = matrix[0];   // а вот так надо
 
     // Вывод содержимого массива
     int *a = *matrix;
-    for (size_t i = 0; i < ROWS; i++) {   
+    printf("%x\n", matrix);   // указатель на массив первой строки
+    printf("%x\n", *matrix);  // адрес первого элемента строки
+    printf("%x\n", **matrix); // первый элемент строки
+    for (size_t i = 0; i < ROWS; i++) {
         for (size_t j = 0; j < COLS; j++) {
-            printf("%d", *a++);
+            printf("%d ", *a++);
+            // printf("%d", matrix[i][j]);
         }
+        printf("\n");
     }
     return 0;
 }

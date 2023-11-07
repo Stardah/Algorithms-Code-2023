@@ -9,7 +9,7 @@ int main(void) {
 
     // Герантии выделения памяти нет
     // Все переменные могут оказаться равны NULL
-    long long *array = malloc(100 * sizeof(long long)); // ~ realloc(NULL, _Size);
+    long long *array = (long long *)malloc(100 * sizeof(long long)); // ~ realloc(NULL, _Size);
     long long *same_array1 = malloc(sizeof(long long[100]));
     long long *same_array2 = malloc(100 * sizeof(array));
 
@@ -27,9 +27,10 @@ int main(void) {
     free(same_array2);
     free(clear_array);
 
-    // void memset(void *dest, int ch, size_t count); Заполняет память байтом ch
+    // void memset(void *dest, int ch, size_t count); Заполняет память интом ch
     char str[5];
     memset(str, 'G', 9);
+    printf("%s", str);
 
     // void memcpy(void *dst, const void *src, size_t n); Копирует содержимое памяти
     char str_cpy[6] = {'a', 'b', 'c', 'd', 'e', '\0'};

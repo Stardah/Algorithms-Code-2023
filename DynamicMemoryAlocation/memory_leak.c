@@ -3,8 +3,10 @@
 #include <stdlib.h>
 
 void print_array(const int *a, int length) {
-    for (size_t i = 0; i < length; i++)
+    for (size_t i = 0; i < length; i++) {
         printf("%d ", a[i]);
+    }
+
     printf("\n");
 }
 
@@ -29,12 +31,12 @@ void classic_memory_leak() {
 
 void nested_memory_leak() {
     // 1 000 000 000 байт = 954 мб
-    const int array_size = 10000;
-    const int sub_array_size = 1000; // 100000
+    const int array_size = 100000;
+    const int sub_array_size = 10000; // 100000
     int **array2d = malloc(array_size * sizeof(int *));
 
-    for (size_t i = 0; i < sub_array_size; i++) {
-        array2d[i] = calloc(array_size, sizeof(int));
+    for (size_t i = 0; i < array_size; i++) {
+        array2d[i] = calloc(sub_array_size, sizeof(int));
     }
 
     free(array2d);
@@ -57,7 +59,8 @@ char *fill(char value) {
 
 void function_leak() {
     char *str[1];
-    str[0] = fill('G'); // Утечка (´。＿。｀)
+    str[0] = fill('F'); // Утечка (´。＿。｀)
+    // free(str[0]);
 }
 
 bool return_leak(int value) {
@@ -71,11 +74,11 @@ bool return_leak(int value) {
 }
 
 int main(void) {
-    forgotten_pointer();
-    classic_memory_leak();
+    // forgotten_pointer();
+    // classic_memory_leak();
     nested_memory_leak();
-    function_leak();
-    return_leak(true);
+    // function_leak();
+    // return_leak(true);
 
     int input;
     scanf("%d", &input);
