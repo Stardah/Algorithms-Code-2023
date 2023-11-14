@@ -9,7 +9,7 @@ int main(void) {
 
     // Герантии выделения памяти нет
     // Все переменные могут оказаться равны NULL
-    long long *array = (long long *)malloc(100 * sizeof(long long)); // ~ realloc(NULL, _Size);
+    long long *array = malloc(100 * sizeof(long long)); // ~ realloc(NULL, _Size);
     long long *same_array1 = malloc(sizeof(long long[100]));
     long long *same_array2 = malloc(100 * sizeof(array));
 

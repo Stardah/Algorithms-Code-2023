@@ -29,16 +29,20 @@ int main(void) {
         {3, 4},
         {5, 6}};
 
+    printf("%d\n", matrix[0][2]); // выводит 3
+
     int(*row)[2];     // Указатель на массив из 2-х значений типа int
     int *all_rows[3]; // Указатель на массив из 3-х значений типа int* (указателей на int)
     int *p;
 
-    row = matrix;
+    row = matrix;     // matrix[0]
     row = matrix + 1; // на следующую строку
-    printf("%x\n", row);
     p = matrix[0];
 
     print_size(ROWS, COLS, row);
+
+    // matrix[0]    vs  matrix
+    // int[] (int*) vs  int (*)[]
 
     // matrix[i] это int (*)[];
     // *(int (*)[]) это int[];
@@ -48,9 +52,9 @@ int main(void) {
 
     // Вывод содержимого массива
     int *a = *matrix;
-    printf("%x\n", matrix);   // указатель на массив первой строки
-    printf("%x\n", *matrix);  // адрес первого элемента строки
-    printf("%x\n", **matrix); // первый элемент строки
+    printf("  matrix: %x\n", matrix);   // указатель на массив первой строки
+    printf(" *matrix: %x\n", *matrix);  // адрес первого элемента строки
+    printf("**matrix: %x\n", **matrix); // первый элемент строки
     for (size_t i = 0; i < ROWS; i++) {
         for (size_t j = 0; j < COLS; j++) {
             printf("%d ", *a++);
