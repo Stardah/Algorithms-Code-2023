@@ -27,18 +27,19 @@ struct student {
     char name[20]; // 16 + 4 + (4)
     int group;     // 4 + (4)
     char city[20]; // 16 + 4 + (4)
+
     // bool(struct subject *sbj_ptr)* study;
     bool (*study)(struct subject *sbj_ptr); // 8
 
-    enum Language { C = 10,
+    enum Language { C = 1,
                     Go,
                     CPP,
                     Java = 20,
                     CSharp,
                     Python } lang; // 4 + (4)
 
-    char flexible_array_member[10]; // 8
-} student, *ptr;                    // 80 байт
+    char flexible_array_member[]; // 8
+} student, *ptr;                  // 80 байт
 
 bool study(struct subject *sbj_ptr) {
     sbj_ptr->hours += sbj_ptr->difficulty / 60.0;
@@ -60,18 +61,18 @@ int main(int argc, char const *argv[]) {
     // struct student st = {"Смирнов П.В.", 104, "Калуга"};
     char arr[20] = "Смиронов"; // Это работает
     // struct student st = {.name = "Смирнов"}; // А это нет
+
     struct student st = {.name = "Smirnov", .city = "Moscow", .group = 10};
     // struct student *st_p = malloc(sizeof(struct student) * 1);
     struct student *st_p = &st;
 
-    st.lang = CPP;
-
+    st.lang = 39825;
     st.name;
     st_p->name;
     (*st_p).name;
 
     st.study = study;
-    st.lang = 0;
+    st.lang = Java;
 
     struct homework hw = {"WorkBook", 45};
     struct subject sbj = {"Algorithms", 7, 0, hw};

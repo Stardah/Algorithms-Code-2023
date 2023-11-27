@@ -1,4 +1,6 @@
 *.exe
 .vscode
 main.c
+main2.c
 Strings/task6.c
+test.txt
