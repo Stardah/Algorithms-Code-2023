@@ -1,5 +1,6 @@
 #include "list.c"
 #include "list.h"
+// #include "queue.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -32,7 +33,6 @@ void queue_free(int_list *list) {
     list_free(list);
 }
 
-/* int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     return 0;
-} */
+}
