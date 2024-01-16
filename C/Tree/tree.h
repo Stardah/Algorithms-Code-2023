@@ -7,6 +7,7 @@ typedef struct tree_node {
     int value;
     struct tree_node *left;
     struct tree_node *right;
+    // struct tree_node *children = malloc(10*sizeof(tree_node));
     struct tree_node *parent;
 } tree_node;
 

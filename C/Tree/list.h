@@ -2,17 +2,15 @@
 
 #include "tree.h"
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
-typedef struct tree_list
-{
+typedef struct tree_list {
     struct list_node *front;
     struct list_node *back;
 } tree_list;
 
-typedef struct list_node
-{
+typedef struct list_node {
     struct tree_node *value;
     struct list_node *next;
     struct list_node *prev;
