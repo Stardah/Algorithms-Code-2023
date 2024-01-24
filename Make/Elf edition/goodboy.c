@@ -7,6 +7,6 @@
 #endif
 
 int main(void) {
-	printf(VOICE "\n");
-	return 0 ;
+    printf(VOICE "\n");
+    return 0;
 }

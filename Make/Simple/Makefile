@@ -20,7 +20,10 @@ ASMFLAGS := --gprefix _ -f win32
 # % - wildcard
 
 %.o : %.c 
-	$(CC) $(CFLAGS) -c  $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 %.o : %.asm 
 	$(ASMC) $(ASMFLAGS) $< -o $@
+
+# %.o : %.asm 
+# 	echo "bla bla"
