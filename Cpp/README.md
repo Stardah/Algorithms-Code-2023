@@ -1,10 +1,15 @@
 # Раздел с примерами и полезной информацией для разработки на C++
 
+## C++
+[Классы](Classes)
+
+[Сборка в CMake](<CMake example>)
+
+[Сборка в Make](<Make example>)
+
 ## CMake|Make
 Файл с функциями для cmake [здесь](cmake/Core.cmake)
 - [Cmake туториал](https://cmake.org/cmake/help/latest/guide/tutorial/Installing%20and%20Testing.html)
-
-Пример проекта со сборкой через make [здесь](./Make%20example/)
 - [Make туториал](https://makefiletutorial.com/)
 
 

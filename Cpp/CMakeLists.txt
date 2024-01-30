@@ -12,7 +12,8 @@ include(cmake/Core.cmake)
 #add_custom_target(doc) # DEPENDS docProjA docProjB) Note: with CMake 3.X the DEPENDS would work
 
 # Include subdirectories
-add_subdirectory ("CMake example")
+add_subdirectory("CMake example")
+add_subdirectory("Classes")
 
 # Google tests
 enable_testing()

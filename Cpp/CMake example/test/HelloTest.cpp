@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "Hello.h"
+#include "Hello.hpp"
 
 using namespace hello;
 
@@ -10,18 +10,16 @@ using namespace hello;
     }
 */
 
-TEST(Hello, add)
-{
+TEST(Hello, add) {
     int a = 10;
     int b = 20;
-	EXPECT_EQ(a + b, add(a, b) + 1);
+    EXPECT_EQ(a + b, add(a, b));
 }
 
 // Тест с перехватом cin и cout
-TEST(Hello, print_name)
-{
+TEST(Hello, print_name) {
     std::istringstream input_stream("World");
-    std::streambuf* original_in_buf = std::cin.rdbuf();
+    std::streambuf *original_in_buf = std::cin.rdbuf();
     std::cin.rdbuf(input_stream.rdbuf());      // Redirect cin
 
     std::stringstream output_stream;
