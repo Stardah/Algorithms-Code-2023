@@ -14,6 +14,7 @@ include(cmake/Core.cmake)
 # Include subdirectories
 add_subdirectory("CMake example")
 add_subdirectory("Classes")
+add_subdirectory("Templates")
 
 # Google tests
 enable_testing()
