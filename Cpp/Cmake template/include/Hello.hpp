@@ -4,7 +4,7 @@
 
 namespace hello {
     void print_hello();
-    int add(int a, int b);
+    int add(int, int);
 }
 
 #endif //CPP_HELLO_H

@@ -3,9 +3,9 @@
 ## C++
 [Классы](Classes)
 
-[Сборка в CMake](<CMake example>)
+[Сборка в CMake](<Cmake template>)
 
-[Сборка в Make](<Make example>)
+[Сборка в Make](<Make template>)
 
 ## CMake|Make
 Файл с функциями для cmake [здесь](cmake/Core.cmake)
