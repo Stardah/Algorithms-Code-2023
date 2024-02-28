@@ -1,0 +1,13 @@
+project("Containers")
+
+single_executable("dynamic polymorphism/tagged_union.cpp")
+single_executable("dynamic polymorphism/variant.cpp")
+single_executable("dynamic polymorphism/interface.cpp")
+single_executable("dynamic polymorphism/parser.cpp")
+single_executable("dynamic polymorphism/preprocessor.cpp")
+single_executable("smart pointers/pointers.cpp")
+single_executable("smart pointers/smart_pointer.cpp")
+single_executable("smart pointers/shared_pointer.cpp")
+single_executable("smart pointers/std_pointers.cpp")
+single_executable("exceptions/try_catch.cpp")
+single_executable("exceptions/custom_exception.cpp")

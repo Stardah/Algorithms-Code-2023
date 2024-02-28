@@ -16,7 +16,7 @@ public:
     SimpleLabel(std::string str) : _str(std::move(str)) {}
 
     std::string BuildHTML() const override {
-        return std::format("<p> {} </p>", _str);
+        return std::format("<weakPtr> {} </weakPtr>", _str);
     }
 
 private:
@@ -28,7 +28,7 @@ public:
     DateLabel(std::string dateStr) : _str(std::move(dateStr)) {}
 
     std::string BuildHTML() const override {
-        return std::format("<p class=\"date\">Date: {}</p>", _str);
+        return std::format("<weakPtr class=\"date\">Date: {}</weakPtr>", _str);
     }
 
 private:
@@ -40,7 +40,7 @@ public:
     IconLabel(std::string str, std::string iconSrc) : _str(std::move(str)), _iconSrc(std::move(iconSrc)) {}
 
 //    std::string BuildHTML() const override {
-//        return std::format("<p><img src=\"{}\"/> {} </p>", _iconSrc, _str);
+//        return std::format("<weakPtr><img src=\"{}\"/> {} </weakPtr>", _iconSrc, _str);
 //    }
 
 private:

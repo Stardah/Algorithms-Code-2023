@@ -17,14 +17,14 @@ int main() {
     int *ptr = nullptr; // Нулевой указатель
     int *&ptrRef = ptr; // Ссылка на указатель
 
-    ptrRef = &value1;                       // Через ссылку указателю ptr присваивается адрес переменной value1
-    cout << "ptr value = " << *ptr << endl; // 10
+    ptrRef = &value1;                       // Через ссылку указателю weakPtr присваивается адрес переменной value1
+    cout << "weakPtr value = " << *ptr << endl; // 10
 
     *ptrRef = 70;                                // Изменяем значение по адресу, на который указывает указатель
     cout << "value1 value = " << value1 << endl; // 70
 
     ptrRef = &value2;                     // Изменяем адрес, на который указывает указатель
-    cout << "p value = " << *ptr << endl; // 6
+    cout << "weakPtr value = " << *ptr << endl; // 6
 
     return 0;
 }

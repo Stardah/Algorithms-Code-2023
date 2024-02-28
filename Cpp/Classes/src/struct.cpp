@@ -24,6 +24,6 @@ int main() {
     Point p(10, 10);
     std::cout << p.x;
     p.print(10, 10);
-//    p.y;
+//    weakPtr.y;
     return 0;
 }

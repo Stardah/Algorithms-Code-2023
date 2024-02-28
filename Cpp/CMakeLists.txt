@@ -16,7 +16,7 @@ add_subdirectory("Cmake template")
 add_subdirectory("Classes")
 add_subdirectory("Templates")
 add_subdirectory("Containers")
-add_subdirectory("Project")
+add_subdirectory("CPU Emulator")
 
 # Google tests
 enable_testing()

@@ -15,7 +15,7 @@ int main() {
     };
 
     unorderedMultimap.insert({4, "k"});
-    auto threeIt = unorderedMultimap.insert(pair<int, string>(3, "p"));
+    auto threeIt = unorderedMultimap.insert(pair<int, string>(3, "weakPtr"));
 
     cout << "*threeIt: " << threeIt->first << "->" << threeIt->second << endl;
 
