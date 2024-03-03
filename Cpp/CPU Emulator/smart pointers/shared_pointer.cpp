@@ -2,17 +2,17 @@
 #include <iostream>
 
 template<class T>
-class UniquePointer {
+class SharedPointer {
 public:
-    UniquePointer() = delete;
+    SharedPointer() = delete;
 
-    explicit UniquePointer(T *&&ptr) : ptr(ptr), counter(new size_t(1)) {};
+    explicit SharedPointer(T *&&ptr) : ptr(ptr), counter(new size_t(1)) {};
 
-    UniquePointer(UniquePointer &&other) noexcept {
+    SharedPointer(SharedPointer &&other) noexcept {
         this = std::move(other);
     };
 
-    UniquePointer &operator=(UniquePointer &&other) noexcept {
+    SharedPointer &operator=(SharedPointer &&other) noexcept {
         ptr = other.ptr;
         counter = other.counter;
         other.ptr = nullptr;
@@ -20,13 +20,13 @@ public:
         return *this;
     };
 
-    UniquePointer(const UniquePointer &other) { // Что может пойти не так?
+    SharedPointer(const SharedPointer &other) { // Что может пойти не так?
         ptr = other.ptr;
         counter = other.counter;
         *counter += 1;
     };
 
-    UniquePointer operator=(const UniquePointer &other) = delete;
+    SharedPointer operator=(const SharedPointer &other) = delete;
 
     T *operator->() const {
         return this->ptr;
@@ -36,7 +36,7 @@ public:
         return this->ptr;
     }
 
-    ~UniquePointer() {
+    ~SharedPointer() {
         *counter -= 1;
         if (*counter == 0) {
             delete ptr;
@@ -54,7 +54,7 @@ private:
 };
 
 int main() {
-    UniquePointer<int> ptr(new int(5));
+    SharedPointer<int> ptr(new int(5));
     std::cout << ptr.getCounter() << std::endl;
     {
         auto ptr2 = ptr;
