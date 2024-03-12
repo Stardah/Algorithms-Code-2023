@@ -17,6 +17,7 @@ add_subdirectory("Classes")
 add_subdirectory("Templates")
 add_subdirectory("Containers")
 add_subdirectory("CPU Emulator")
+add_subdirectory("Inheritance")
 
 # Google tests
 enable_testing()
