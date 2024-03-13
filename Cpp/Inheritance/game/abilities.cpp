@@ -1,7 +1,7 @@
 #pragma once
+#include "stats.cpp"
 #include <iostream>
 #include <string>
-#include "stats.cpp"
 
 namespace game {
     class Skill {

@@ -1,14 +1,14 @@
 #pragma once
+#include <format>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <utility>
 #include <vector>
-#include <memory>
-#include <format>
 
 #include "abilities.cpp"
-#include "weapons.cpp"
 #include "stats.cpp"
+#include "weapons.cpp"
 
 namespace game {
     class Skill;
@@ -24,7 +24,7 @@ namespace game {
 
         void attack(Character &target) {
             auto newStats = stats;
-            for (const auto &skill: skills) {
+            for (const auto &skill : skills) {
                 if (skill->isActive()) {
                     skill->applyEffect(newStats);
                 }
@@ -40,7 +40,7 @@ namespace game {
         }
 
         void acquireSkill(std::unique_ptr<Skill> &&skill) {
-            std::cout << std::format("{} learns a new skill \"{}\"!",name, skill->getName()) << std::endl;
+            std::cout << std::format("{} learns a new skill \"{}\"!", name, skill->getName()) << std::endl;
             skills.push_back(std::move(skill));
         }
 
@@ -54,7 +54,7 @@ namespace game {
             std::cout << name << " takes " << damage << " damage!" << std::endl;
         }
 
-        Stats& getStats() {
+        Stats &getStats() {
             return stats;
         }
 
@@ -70,12 +70,12 @@ namespace game {
         Weapon weapon = Fists();
     };
 
-// Derived class for warriors
+    // Derived class for warriors
     class Warrior : public Character {
     public:
         explicit Warrior(const std::string &name) : Character(name, 100, 30, 20) {}
 
-        void specialAttack(Character& enemy) {
+        void specialAttack(Character &enemy) {
             std::cout << name << " performs a mighty sword strike!" << std::endl;
             this->attack(enemy);
         }
@@ -86,12 +86,12 @@ namespace game {
         }
     };
 
-// Derived class for mages
+    // Derived class for mages
     class Mage : public Character {
     public:
         explicit Mage(const std::string &name) : Character(name, 80, 50, 10) {}
 
-        void castSpell(Character& target) {
+        void castSpell(Character &target) {
             std::cout << name << " casts a powerful fireball spell!" << std::endl;
             this->attack(target);
         }
