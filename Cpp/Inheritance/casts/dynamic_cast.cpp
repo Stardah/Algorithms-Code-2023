@@ -19,6 +19,10 @@ public:
     void speak() const override {
         std::cout << "Dog barks." << std::endl;
     }
+
+    void jump() {
+        std::cout << "Dog jumps." << std::endl;
+    }
 };
 
 class Cat : public Animal {
@@ -33,7 +37,7 @@ int main() {
 
     Dog* dogPtr = dynamic_cast<Dog*>(animalPtr);
     if (dogPtr) {
-        dogPtr->speak();
+        dogPtr->jump();
     } else {
         std::cout << "Failed to cast to Dog." << std::endl;
     }
