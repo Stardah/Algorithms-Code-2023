@@ -1,16 +1,54 @@
-extern io_get_dec, io_print_dec, io_newline
+; int *a;
+; int n = 10;
+; int b[10];
+; for(int i = 0; i < n; i++) {
+;   b[i] = a[i]
+; }
 
-section .text
+section .data
+    n dd 10
+    
+section .bss
+    a resd 1 ; int *a
+    src resd 10 ; int
+    b resd 10 ; int
+     
+section .text 
 global main
-main: 
-    call io_get_dec
-    mov ebx, eax ; ebx = eax
+main:
+    mov dword[a], src
+
+    mov esi, dword[a]
+    mov edi, b
+    mov ecx, dword[n] ; i = n
+    rep movsd
     
-    call io_get_dec
+    mov esi, dword[a]
+    mov edi, b
+    mov ecx, dword[n] ; i = 0
+    dec ecx
+    je .end
+.loop:
+    mov eax, dword[esi] 
+    mov dword[edi], eax
     
-    add eax, ebx ; eax += ebx
-    call io_print_dec
-    
-    call io_newline
-    xor eax , eax
+    add esi, 4
+    add edi, 4
+    dec ecx
+    jnz .loop
+
+.end:    
+    xor eax, eax
     ret
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

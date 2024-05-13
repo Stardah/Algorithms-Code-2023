@@ -1,7 +1,14 @@
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
+    short p_val[] = {10, 20};
+    short q_val[] = {30, 40};
+
+    short *p = p_val;
+    short *q = q_val;
+
+    *p++ = *++q;
+    *p++ = --*q;
 
     char *mychar;
     short *myshort;
@@ -18,7 +25,6 @@ int main(void)
     printf("pointer value is %d\n", *pointer);
 
     *pointer++; // что произойдёт?
-
 
     printf("*pointer value is %d\n", *pointer);
     printf("pointer value is %d\n", pointer);
