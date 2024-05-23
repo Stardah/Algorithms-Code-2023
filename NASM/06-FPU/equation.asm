@@ -3,7 +3,7 @@
 ; It assumes that the arguments are valid floating point numbers
 
 section .data
-    fmt db "%f", 0 ; format string for printf
+    fmt db "%f", 0         ; format string for printf
     input_a db "5.0", 0  
     
     a dq 5.0
